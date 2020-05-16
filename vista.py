@@ -42,7 +42,8 @@ class vista:
                     textvariable=self.var_descripcion,
                     width=25).grid(row=3, column=1)
         self.boton_consulta = Button(self.parte_superior,
-                    text="Mostrar registros existentes", width=88).grid(row=5, column=0,
+                    text="Mostrar registros existentes", width=88)
+        self.boton_consulta.grid(row=5, column=0,
                     columnspan=3, sticky=W+E)
         self.boton_bd = Button(self.parte_superior,
                     text="Crear BD")

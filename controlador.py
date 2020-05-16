@@ -19,6 +19,7 @@ class controlador:
 
         self.visuales.boton_alta.config(command=self.altaDatos)
         self.visuales.boton_bd.config(command=self.crearBase)
+        self.visuales.boton_consulta.config(command=self.consultaDatos)
 
 
     def altaDatos(self):
@@ -26,6 +27,11 @@ class controlador:
 
     def crearBase(self):
         self.bbdd.crearbd()
+
+    def consultaDatos(self):
+        self.bbdd.consulta(self.visuales.tree)
+
+
 
 
         # self.visuales.boton_consulta.config(lambda:consulta(self.tree))
