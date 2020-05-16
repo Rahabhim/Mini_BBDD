@@ -49,7 +49,8 @@ class vista:
         # self.boton_modificar = Button(self.parte_superior,
         #             text="Modificar").grid(row=5, ipadx=20, padx=70, column=1)
         self.boton_alta = Button(self.parte_superior,
-                    text="Alta").grid(row=4, ipadx=20, padx=70, column=2)
+                    text="Alta")
+        self.boton_alta.grid(row=4, ipadx=20, padx=70, column=2)
 
         #-----------------------------Parte central-----------------------------------#
 

@@ -13,6 +13,16 @@ class controlador:
 
         self.bbdd = modelo(self)
 
+
+
+
+        self.visuales.boton_alta.config(command=self.altaDatos)
+
+
+    def altaDatos(self):
+        self.bbdd.altasql(self.visuales.var_titulo, self.visuales.var_descripcion)
+
+
         # self.visuales.boton_consulta.config(lambda:consulta(self.tree))
 
 

@@ -12,24 +12,24 @@ class modelo:
 
 
 
-    #
-    # def altasql(self, var_titulo, var_descripcion):
-    #     try:
-    #         if not validar(var_titulo):
-    #             messagebox.showinfo("Error", "Título invalido: " + var_titulo.get()
-    #              + "\nNo puede estar vacío, contener números o símbolos")
-    #             return
-    #         datos = (var_titulo.get(), var_descripcion.get())
-    #         sql = "INSERT INTO producto (titulo, descripcion) VALUES (%s, %s)"
-    #         mibase = mysql.connector.connect(host="localhost", user="root",
-    #                 passwd="", database="baseprueba1")
-    #         micursor = mibase.cursor()
-    #         micursor.execute(sql, datos)
-    #         print(micursor.rowcount, "Cantidad de registros agregados.")
-    #         mibase.commit()
-    #     except:
-    #         messagebox.showerror("Error",
-    #         "Base de datos inexistente o problemas de conexión")
+
+    def altasql(self, var_titulo, var_descripcion):
+        try:
+            # if not validar(var_titulo):
+            #     messagebox.showinfo("Error", "Título invalido: " + var_titulo.get()
+            #      + "\nNo puede estar vacío, contener números o símbolos")
+            #     return
+            datos = (var_titulo.get(), var_descripcion.get())
+            sql = "INSERT INTO producto (titulo, descripcion) VALUES (%s, %s)"
+            mibase = mysql.connector.connect(host="localhost", user="root",
+                    passwd="", database="baseprueba1")
+            micursor = mibase.cursor()
+            micursor.execute(sql, datos)
+            print(micursor.rowcount, "Cantidad de registros agregados.")
+            mibase.commit()
+        except:
+            messagebox.showerror("Error",
+            "Base de datos inexistente o problemas de conexión")
     #
     #
     #
