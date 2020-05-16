@@ -18,10 +18,14 @@ class controlador:
 
 
         self.visuales.boton_alta.config(command=self.altaDatos)
+        self.visuales.boton_bd.config(command=self.crearBase)
 
 
     def altaDatos(self):
         self.bbdd.altasql(self.visuales.var_titulo, self.visuales.var_descripcion)
+
+    def crearBase(self):
+        self.bbdd.crearbd()
 
 
         # self.visuales.boton_consulta.config(lambda:consulta(self.tree))

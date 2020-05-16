@@ -45,7 +45,8 @@ class vista:
                     text="Mostrar registros existentes", width=88).grid(row=5, column=0,
                     columnspan=3, sticky=W+E)
         self.boton_bd = Button(self.parte_superior,
-                    text="Crear BD").grid(row=4, ipadx=20, padx=70, column=0)
+                    text="Crear BD")
+        self.boton_bd.grid(row=4, ipadx=20, padx=70, column=0)
         # self.boton_modificar = Button(self.parte_superior,
         #             text="Modificar").grid(row=5, ipadx=20, padx=70, column=1)
         self.boton_alta = Button(self.parte_superior,

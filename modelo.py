@@ -30,29 +30,29 @@ class modelo:
         except:
             messagebox.showerror("Error",
             "Base de datos inexistente o problemas de conexión")
-    #
-    #
-    #
-    # def crearbd():
-    #     try:
-    #
-    #         mibase = mysql.connector.connect(host="localhost",
-    #                 user="root", passwd="")
-    #         micursor = mibase.cursor()
-    #         micursor.execute("CREATE DATABASE IF NOT EXISTS baseprueba1")
-    #         mibase = mysql.connector.connect(host="localhost", user="root",
-    #                 passwd="", database="baseprueba1")
-    #         micursor = mibase.cursor()
-    #         micursor.execute("""CREATE TABLE IF NOT EXISTS producto( id int(11)
-    #         NOT NULL PRIMARY KEY AUTO_INCREMENT, titulo VARCHAR(128)
-    #         COLLATE utf8_spanish2_ci NOT NULL, descripcion text
-    #         COLLATE utf8_spanish2_ci NOT NULL )""")
-    #         print("Base de datos lista")
-    #         mibase.commit()
-    #     except:
-    #         messagebox.showerror("Error",
-    #         "Compruebe su conexión a la base de datos")
-    #
+
+
+
+    def crearbd(self):
+        try:
+
+            mibase = mysql.connector.connect(host="localhost",
+                    user="root", passwd="")
+            micursor = mibase.cursor()
+            micursor.execute("CREATE DATABASE IF NOT EXISTS baseprueba1")
+            mibase = mysql.connector.connect(host="localhost", user="root",
+                    passwd="", database="baseprueba1")
+            micursor = mibase.cursor()
+            micursor.execute("""CREATE TABLE IF NOT EXISTS producto( id int(11)
+            NOT NULL PRIMARY KEY AUTO_INCREMENT, titulo VARCHAR(128)
+            COLLATE utf8_spanish2_ci NOT NULL, descripcion text
+            COLLATE utf8_spanish2_ci NOT NULL )""")
+            print("Base de datos lista")
+            mibase.commit()
+        except:
+            messagebox.showerror("Error",
+            "Compruebe su conexión a la base de datos")
+
 
 
     def consulta(self, tree):
