@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import ttk
-from vista import *
-from modelo import *
-from temas import EleccionTema
+from .vista import *
+from .modelo import *
+from .modulo_temas.temas import EleccionTema
 
 
 class controlador:

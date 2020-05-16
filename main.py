@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from controlador import controlador
+from MVC.controlador import controlador
 
 
 ventana = Tk()
