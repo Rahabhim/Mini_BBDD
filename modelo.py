@@ -5,19 +5,12 @@ import re
 
 class modelo:
 
-    # def __init__(self, vc):
-    #     self.vc = vc
-    #
-
-
-
-
-
     def altasql(self, var_titulo, var_descripcion):
         try:
             if not self.validar(var_titulo.get()):
-                messagebox.showinfo("Error", "Título invalido: " + var_titulo.get()
-                 + "\nNo puede estar vacío, contener números o símbolos")
+                messagebox.showinfo("Error", "Título invalido: " +
+                var_titulo.get() +
+                "\nNo puede estar vacío, contener números o símbolos")
                 return
             datos = (var_titulo.get(), var_descripcion.get())
             sql = "INSERT INTO producto (titulo, descripcion) VALUES (%s, %s)"
@@ -30,7 +23,6 @@ class modelo:
         except:
             messagebox.showerror("Error",
             "Base de datos inexistente o problemas de conexión")
-
 
 
     def crearbd(self):
@@ -54,12 +46,11 @@ class modelo:
             "Compruebe su conexión a la base de datos")
 
 
-
     def consulta(self, tree):
         try:
             self.sql = "SELECT * FROM producto"
-            self.mibase = mysql.connector.connect(host="localhost", user="root",
-                    passwd="", database="baseprueba1")
+            self.mibase = mysql.connector.connect(host="localhost",
+                    user="root", passwd="", database="baseprueba1")
             self.micursor = self.mibase.cursor()
             self.micursor.execute(self.sql)
             self.resultado = self.micursor.fetchall()

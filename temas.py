@@ -1,8 +1,6 @@
 
 
 
-
-
 def EleccionTema(var_temas):
     if var_temas.get() == 1:
         return "red"

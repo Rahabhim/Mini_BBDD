@@ -2,24 +2,28 @@ from tkinter import *
 from tkinter import ttk
 from vista import *
 from modelo import *
+from temas import EleccionTema
 
 
 class controlador:
     def __init__(self, ventana):
 
+        #---------------------------------------------------------------------#
+
         self.ventana = ventana
-
         self.visuales = vista(self.ventana)
-
-        # self.bbdd = modelo(self)
         self.bbdd = modelo()
 
-
-
+        #-------------------------Comando de botones--------------------------#
 
         self.visuales.boton_alta.config(command=self.altaDatos)
         self.visuales.boton_bd.config(command=self.crearBase)
         self.visuales.boton_consulta.config(command=self.consultaDatos)
+        self.visuales.radio_rojo.config(command=self.seleccion_tema)
+        self.visuales.radio_azul.config(command=self.seleccion_tema)
+        self.visuales.radio_verde.config(command=self.seleccion_tema)
+
+        #-----------------Funciones que conectan modulos----------------------#
 
 
     def altaDatos(self):
@@ -31,40 +35,11 @@ class controlador:
     def consultaDatos(self):
         self.bbdd.consulta(self.visuales.tree)
 
-
-
-
-        # self.visuales.boton_consulta.config(lambda:consulta(self.tree))
-
-
-    # def consultaDatos(self):
-    #     self.bbdd.consulta(self.tree)
-        # self.visuales.
-
-
-
-        # self.boton_bd = Button(self.parte_superior, text="Crear BD",
-        #             command=crearbd).grid(row=5, ipadx=20, padx=70, column=0)
-        # self.boton_alta = Button(self.parte_superior, text="Alta",
-        #             command=lambda:altasql(self.var_titulo,
-        #             self.var_descripcion)).grid(row=5, ipadx=20, padx=70,
-        #             column=1)
-
-
-        # self.radio_rojo = Radiobutton(self.parte_inferior, text="Tono Rojo",
-        #             bg="black", fg="red", width=10, variable=self.var_temas,
-        #             value=1, command=self.seleccion_tema).grid(row=1,
-        #             columnspan=3)
-        # self.radio_azul = Radiobutton(self.parte_inferior, text="Tono Azul",
-        #             bg="black", fg="red", width=10, variable=self.var_temas,
-        #             value=2, command=self.seleccion_tema).grid(row=2,
-        #             columnspan=3)
-        # self.radio_verde = Radiobutton(self.parte_inferior, text="Tono Verde",
-        #             bg="black", fg="red", width=10, variable=self.var_temas,
-        #             value=3, command=self.seleccion_tema).grid(row=3,
-        #             columnspan=3)
-
-
+    def seleccion_tema(self):
+        self.visuales.ventana["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.parte_superior["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.parte_central["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.parte_inferior["bg"] = EleccionTema(self.visuales.var_temas)
 
 
 if __name__ == "__main__":
