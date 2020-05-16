@@ -11,7 +11,8 @@ class controlador:
 
         self.visuales = vista(self.ventana)
 
-        self.bbdd = modelo(self)
+        # self.bbdd = modelo(self)
+        self.bbdd = modelo()
 
 
 

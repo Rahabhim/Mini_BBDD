@@ -5,9 +5,9 @@ import re
 
 class modelo:
 
-    def __init__(self, vc):
-        self.vc = vc
-
+    # def __init__(self, vc):
+    #     self.vc = vc
+    #
 
 
 
@@ -15,10 +15,10 @@ class modelo:
 
     def altasql(self, var_titulo, var_descripcion):
         try:
-            # if not validar(var_titulo):
-            #     messagebox.showinfo("Error", "Título invalido: " + var_titulo.get()
-            #      + "\nNo puede estar vacío, contener números o símbolos")
-            #     return
+            if not self.validar(var_titulo.get()):
+                messagebox.showinfo("Error", "Título invalido: " + var_titulo.get()
+                 + "\nNo puede estar vacío, contener números o símbolos")
+                return
             datos = (var_titulo.get(), var_descripcion.get())
             sql = "INSERT INTO producto (titulo, descripcion) VALUES (%s, %s)"
             mibase = mysql.connector.connect(host="localhost", user="root",
@@ -72,11 +72,11 @@ class modelo:
         except:
             messagebox.showerror("Error",
             "Compruebe su conexión a la base de datos")
-    #
-    #
-    # def validar(titulo_var):
-    #     patron = re.compile("^[A-Za-z]+(?:[ _-][A-Za-z]+)*$")
-    #     if not (re.fullmatch(patron, titulo_var.get())):
-    #         return False
-    #     else:
-    #         return True
+
+
+    def validar(self, titulo_var):
+        patron = re.compile("^[A-Za-z]+(?:[ _-][A-Za-z]+)*$")
+        if not (re.fullmatch(patron, titulo_var)):
+            return False
+        else:
+            return True
