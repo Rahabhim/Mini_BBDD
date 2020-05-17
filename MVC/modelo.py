@@ -86,6 +86,7 @@ class modelo:
         descripcion = var_descripcion.get()
         self.micursor.execute("""UPDATE producto SET titulo=%s,
         descripcion=%s WHERE id=%s""", (titulo, descripcion, id))
+        print("Producto modificado")
         self.mibase.commit()
 
 
