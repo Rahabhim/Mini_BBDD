@@ -65,6 +65,30 @@ class modelo:
             "Compruebe su conexión a la base de datos")
 
 
+    def modificar(self, seleccion, var_titulo, var_descripcion):
+        self.mibase = mysql.connector.connect(host="localhost",
+                    user="root", passwd="", database="baseprueba1")
+        self.micursor = self.mibase.cursor()
+
+        if not seleccion["values"]:
+            messagebox.showerror("Error de seleccion",
+            "Seleccione una linea por favor")
+            return
+
+        if not self.validar(var_titulo.get()):
+            messagebox.showinfo("Error", "Título invalido: " +
+            var_titulo.get() +
+            "\nNo puede estar vacío, contener números o símbolos")
+            return
+
+        id = seleccion["values"][0]
+        titulo = var_titulo.get()
+        descripcion = var_descripcion.get()
+        self.micursor.execute("""UPDATE producto SET titulo=%s,
+        descripcion=%s WHERE id=%s""", (titulo, descripcion, id))
+        self.mibase.commit()
+
+
     def validar(self, titulo_var):
         patron = re.compile("^[A-Za-z]+(?:[ _-][A-Za-z]+)*$")
         if not (re.fullmatch(patron, titulo_var)):
