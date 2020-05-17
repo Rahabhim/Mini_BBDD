@@ -53,9 +53,11 @@ class vista:
         self.boton_bd = Button(self.parte_superior, text="Crear BD")
         self.boton_bd.grid(row=4, ipadx=20, padx=40, column=0)
         self.boton_alta = Button(self.parte_superior, text="Alta")
-        self.boton_alta.grid(row=4, ipadx=20, padx=40, column=2)
+        self.boton_alta.grid(row=2, ipadx=20, padx=5, column=2, sticky=E)
         self.boton_modificar = Button(self.parte_superior, text="Modificar")
         self.boton_modificar.grid(row=4, ipadx=20, padx=40, column=1)
+        self.boton_baja = Button(self.parte_superior, text="Baja")
+        self.boton_baja.grid(row=4, ipadx=20, padx=5, column=2, sticky=E)
 
         #-----------------------------Parte central---------------------------#
 

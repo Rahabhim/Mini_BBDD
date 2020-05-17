@@ -89,6 +89,18 @@ class modelo:
         print("Producto modificado")
         self.mibase.commit()
 
+    def baja(self, seleccion):
+        self.mibase = mysql.connector.connect(host="localhost",
+                    user="root", passwd="", database="baseprueba1")
+        self.micursor = self.mibase.cursor()
+        if not seleccion["values"]:
+            messagebox.showerror("Error de seleccion",
+            "Seleccione una linea por favor")
+            return
+        id = seleccion["values"][0]
+        self.micursor.execute("DELETE FROM producto WHERE id=%s", (id,))
+        print("Registro eliminado")
+        self.mibase.commit()
 
     def validar(self, titulo_var):
         patron = re.compile("^[A-Za-z]+(?:[ _-][A-Za-z]+)*$")
