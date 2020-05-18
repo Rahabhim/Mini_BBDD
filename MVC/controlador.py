@@ -3,6 +3,8 @@ from tkinter import ttk
 from .vista import *
 from .modelo import *
 from .modulo_temas.temas import EleccionTema
+from .PDF.pdf_gen import generar_pdf
+
 
 
 class controlador:
@@ -21,6 +23,7 @@ class controlador:
         self.visuales.boton_modificar.config(command=self.modificarDatos)
         self.visuales.boton_baja.config(command=self.bajaDatos)
         self.visuales.boton_consulta.config(command=self.consultaDatos)
+        self.visuales.boton_pdf.config(command=self.hacerPDF)
         self.visuales.radio_rojo.config(command=self.seleccion_tema)
         self.visuales.radio_azul.config(command=self.seleccion_tema)
         self.visuales.radio_sorpresa.config(command=self.seleccion_tema)
@@ -51,6 +54,9 @@ class controlador:
     def consultaDatos(self):
         self.bbdd.consulta(self.visuales.tree)
 
+    def hacerPDF(self):
+        generar_pdf()
+
     def seleccion_tema(self):
         self.visuales.ventana["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.parte_superior["bg"] = EleccionTema(self.visuales.var_temas)
@@ -69,6 +75,7 @@ class controlador:
         self.visuales.boton_bd["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.boton_modificar["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.boton_baja["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_pdf["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.label_temas["bg"] = EleccionTema(self.visuales.var_temas)
 
 if __name__ == "__main__":

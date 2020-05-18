@@ -62,6 +62,8 @@ class vista:
         self.boton_modificar.grid(row=4, ipadx=20, padx=40, column=1)
         self.boton_baja = Button(self.parte_superior, text="Baja")
         self.boton_baja.grid(row=4, ipadx=20, padx=5, column=2, sticky=E)
+        self.boton_pdf = Button(self.parte_superior, text="PDF")
+        self.boton_pdf.grid(row=3, ipadx=20, padx=5, column=2, sticky=E)
 
         #-----------------------------Parte central---------------------------#
 
