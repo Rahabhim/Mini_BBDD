@@ -5,7 +5,6 @@ from .modelo import *
 from .modulo_temas.temas import EleccionTema
 
 
-
 class controlador:
     def __init__(self, ventana):
 
@@ -24,7 +23,7 @@ class controlador:
         self.visuales.boton_consulta.config(command=self.consultaDatos)
         self.visuales.radio_rojo.config(command=self.seleccion_tema)
         self.visuales.radio_azul.config(command=self.seleccion_tema)
-        self.visuales.radio_verde.config(command=self.seleccion_tema)
+        self.visuales.radio_sorpresa.config(command=self.seleccion_tema)
 
         #-----------------Funciones que conectan modulos----------------------#
 
@@ -49,7 +48,6 @@ class controlador:
         self.bbdd.baja(seleccion)
         self.bbdd.consulta(self.visuales.tree)
 
-
     def consultaDatos(self):
         self.bbdd.consulta(self.visuales.tree)
 
@@ -58,7 +56,20 @@ class controlador:
         self.visuales.parte_superior["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.parte_central["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.parte_inferior["bg"] = EleccionTema(self.visuales.var_temas)
-
+        self.visuales.radio_rojo["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.radio_azul["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.radio_sorpresa["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.header["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.label_titulo["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.label_descripcion["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.entrada_descripcion["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.entrada_titulo["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_consulta["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_alta["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_bd["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_modificar["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_baja["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.label_temas["bg"] = EleccionTema(self.visuales.var_temas)
 
 if __name__ == "__main__":
     ventana = Tk()

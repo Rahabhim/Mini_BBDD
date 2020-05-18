@@ -27,7 +27,6 @@ class modelo:
 
     def crearbd(self):
         try:
-
             mibase = mysql.connector.connect(host="localhost",
                     user="root", passwd="")
             micursor = mibase.cursor()
