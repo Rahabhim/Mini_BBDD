@@ -1,6 +1,7 @@
 from tkinter import messagebox
 import mysql.connector
 import re
+from faker import Faker
 
 
 class modelo:
@@ -115,3 +116,23 @@ class modelo:
             return False
         else:
             return True
+
+    def fake(self):
+        try:
+
+            fakegen = Faker()
+
+            for entry in range(5):
+                faketit = fakegen.first_name()
+                fakedes = fakegen.job()
+
+                datos = (faketit, fakedes)
+                sql = "INSERT INTO producto (titulo, descripcion) VALUES (%s, %s)"
+                mibase = mysql.connector.connect(host="localhost", user="root",
+                        passwd="", database="baseprueba1")
+                micursor = mibase.cursor()
+                micursor.execute(sql, datos)
+                mibase.commit()
+        except:
+            messagebox.showerror("Error",
+            "Algo salio mal con Faker, chequee el codigo")

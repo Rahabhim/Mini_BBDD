@@ -64,6 +64,8 @@ class vista:
         self.boton_baja.grid(row=4, ipadx=20, padx=5, column=2, sticky=E)
         self.boton_pdf = Button(self.parte_superior, text="PDF")
         self.boton_pdf.grid(row=3, ipadx=20, padx=5, column=2, sticky=E)
+        self.boton_fake = Button(self.parte_superior, text="Fake x5")
+        self.boton_fake.grid(row=3, ipadx=6, padx=5, column=2, sticky=W)
 
         #-----------------------------Parte central---------------------------#
 

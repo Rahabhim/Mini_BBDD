@@ -24,6 +24,7 @@ class controlador:
         self.visuales.boton_baja.config(command=self.bajaDatos)
         self.visuales.boton_consulta.config(command=self.consultaDatos)
         self.visuales.boton_pdf.config(command=self.hacerPDF)
+        self.visuales.boton_fake.config(command=self.crearFakes)
         self.visuales.radio_rojo.config(command=self.seleccion_tema)
         self.visuales.radio_azul.config(command=self.seleccion_tema)
         self.visuales.radio_sorpresa.config(command=self.seleccion_tema)
@@ -56,6 +57,11 @@ class controlador:
 
     def hacerPDF(self):
         generar_pdf()
+
+    def crearFakes(self):
+        self.bbdd.fake()
+        self.bbdd.consulta(self.visuales.tree)
+
 
     def seleccion_tema(self):
         self.visuales.ventana["bg"] = EleccionTema(self.visuales.var_temas)
