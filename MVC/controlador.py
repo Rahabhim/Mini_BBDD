@@ -83,6 +83,7 @@ class controlador:
         self.visuales.boton_baja["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.boton_pdf["bg"] = EleccionTema(self.visuales.var_temas)
         self.visuales.label_temas["bg"] = EleccionTema(self.visuales.var_temas)
+        self.visuales.boton_fake["bg"] = EleccionTema(self.visuales.var_temas)
 
 if __name__ == "__main__":
     ventana = Tk()

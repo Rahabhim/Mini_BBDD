@@ -133,6 +133,8 @@ class modelo:
                 micursor = mibase.cursor()
                 micursor.execute(sql, datos)
                 mibase.commit()
+            print("Fakes creados en la base de dato")
+
         except:
             messagebox.showerror("Error",
             "Algo salio mal con Faker, chequee el codigo")
